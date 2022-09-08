@@ -1,18 +1,23 @@
 <template>
-  <div id="app">
-    <HomePage />
-    <router-view />
+  <div>
 
+    <div id="app">
+      <!-- <HomePage /> -->
+      <!-- <PaginationSample /> -->
+      <router-view />
+  
+    </div>
   </div>
 </template>
 
 <script>
-import HomePage from './components/Home.vue'
+// import PaginationSample from './components/pagination.vue';
+// import HomePage from './components/Home.vue'
 
 export default {
   components: {
-    HomePage
-  }
+    // PaginationSample
+}
 }
 </script>
 

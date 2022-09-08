@@ -1,15 +1,24 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import HomePage from '../components/Home.vue'
+import CategoriesPage from '../components/Categories.vue'
+
 
 
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: HomeView
-  // },
+  {
+    path: '/',
+    name: 'HomePage',
+    component: HomePage
+  },
+  {
+    path: '/categories/:id/:page',
+    name: 'CategoriesPage',
+    component: CategoriesPage
+  }
+
   // {
   //   path: '/about',
   //   name: 'about',
@@ -20,10 +29,11 @@ const routes = [
   // }
 ]
 
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
 
-export default router
+export default router;
