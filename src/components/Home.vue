@@ -1,7 +1,17 @@
 <template>
     <div>
         <HeaderNav />
-        <div class="container-fluid">
+        <div class="lds-roller" v-if="loading">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="container-fluid" v-if="!loading">
 
             <div class="row page-heading">The world’s leading live score service for football, cricket, tennis, basketball and hockey</div>
 
@@ -38,24 +48,24 @@
                 <div class="row content-section">
                     <div v-for="category in categories" :key="category.id" class="col-sm-4 col-md-4 col-lg-3 col-xl-2 content">
                         <div class="content-inside">
-                            <!-- <a :href="`https://www.livescore.com/`+category.pathname"> -->
-                            <router-link :to=" `/categories/` + category.id + '/2' ">
+                            <router-link :to=" `/categories/` + category.id + '/' + '1'">
                                 <img src="../assets/fallback.jpg" alt="">
-                                <div class="story-title">{{category.initialTitle}}</div>
+                                <div class="categories-title">{{category.initialTitle}}</div>
                             </router-link>
-                            <!-- </a> -->
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-
     </div>
+
 </template>
 
 <script>
 import HeaderNav from './Header.vue'
+// import CategorySection from './CategorySection.vue'
+// import CategoriesList from './Categorieslist.vue'
 import axios from 'axios'
 export default {
     name: 'HomePage',
@@ -67,36 +77,12 @@ export default {
             topStories: [],
             featuredArticles: [],
             categories: [],
-            categoryTitle: '',
-            current_page : ''
+            loading: false
         }
     },
-    async created() {
-        // let id1 = (this.$route.params.id).toString()
-        // let page1 = (this.$route.params.page).toString()
-        // // console.log(id1)
-        // const result1 = await axios.get(
-        //     'https://livescore6.p.rapidapi.com/news/v2/list-by-sport/',
-        //     {
-        //         headers: {
-        //             'X-RapidAPI-Key': '688eb0beeemsh8c7daafd5c3556ep15a70cjsn064a2a646b55',
-        //             'X-RapidAPI-Host': 'livescore6.p.rapidapi.com'
-        //         },
-        //         params: { category: id1, page: page1 }
-        //     },
-        // );
-        // // params: { category: '2021020913321150030', page: '1' }
-        // // params : { params1 }
-        // console.log(result1.data)
-        // // console.log(result.data)
-        // // this.title = result.data.data.category.title
-        // this.title = result1.data.data[0].category.title
-        // this.data = result1.data.data
-        // this.current_page = result1.data.meta.pagination.current_page
-        // this.per_page = result1.data.meta.pagination.per_page
-        // this.count = result1.data.meta.pagination.count
-        // this.total_pages = result1.data.meta.pagination.total_pages
-        // this.total = result1.data.meta.pagination.total
+    
+    async mounted() {
+        this.loading = true
 
         const result = await axios.get(
             'https://livescore6.p.rapidapi.com/news/v2/list',
@@ -105,72 +91,187 @@ export default {
                     'X-RapidAPI-Key': '688eb0beeemsh8c7daafd5c3556ep15a70cjsn064a2a646b55',
                     'X-RapidAPI-Host': 'livescore6.p.rapidapi.com'
                 }
-                // params: {category: 'all', count: '10'}
             }
         );
-        // console.log(result.data)
         this.topStories = result.data.topStories
         this.featuredArticles = result.data.featuredArticles
         this.categories = result.data.categories
-        // console.log(this.topStories)
-        // console.log(this.categories)
+        this.loading = false
     }
 }
 </script>
-
+    
 <style>
+
 img {
     text-align: center;
-    height: 98px;
-    width: 180px;
+    height: 60%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: 2px solid black
 }
-
-/* height: 100%;
-    width: 100%; */
-
 .page-heading {
-    padding: 12px 0 12px 0;
+    padding: 12px;
     text-align: center;
 }
 
 .section-title {
     background-color: #222;
     color: aliceblue;
-    font-size: 16px;
+    font-family: calibri;
+    font-size: 1.5rem;
     font-weight: 400;
-    padding: 5px 0 5px 15px;
+    padding: 8px 0 8px 20px;
 }
 
 .content-section {
-    padding: 20px 10px;
+    padding: 12px;
 }
 
 .story-title {
-    padding: 10px 0;
+    font-size: 0.75rem;
+    color: black;
+    width: 89%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5px;
 }
-
+.categories-title{
+    font-size: 1rem;
+    color: black;
+    width: 89%;
+    font-weight: bolder;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 10px;
+}
 .content {
-    height: 11.5rem;
+    height: 12.5rem;
     width: 100%;
-    border: 1px solid black;
     border-radius: 3px;
-    /* border: 1px solid rgb(175, 70, 0); */
+    padding: 0;
 }
-
-.content a {
+.content a{
     color: black;
 }
 
-.content-inside {
+.content-inside{
+    width: 100%;
+    height: 100%;
     font-size: 0.8rem;
-    /* color: black; */
-    /* border: 1px solid black; */
+    margin : 6px auto;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    width: 100%;
-    height: 70%;
-    margin: 6px auto;
+}
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 7%;
+    height: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 12%;
+}
 
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgb(4, 32, 48);
+    margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 </style>
