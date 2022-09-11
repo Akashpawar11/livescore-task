@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../components/Home.vue'
 import CategoriesPage from '../components/Categories.vue'
-import ContactUs from '../components/Contact.vue'
-import AboutUs from '../components/aboutUs.vue'
+import ContactPage from '../components/Contact.vue'
+import AboutUs from '../components/AboutUs.vue'
 
 
 Vue.use(VueRouter)
@@ -20,14 +20,14 @@ const routes = [
     component: CategoriesPage
   },
   {
-    path: '/about',
+    path: '/about-us',
     name: 'AboutUs',
     component: AboutUs
   },
   {
-    path: '/contact-us',
-    name: 'ContactUs',
-    component: ContactUs
+    path: '/contact',
+    name: 'ContactPage',
+    component: ContactPage
   }
 ]
 

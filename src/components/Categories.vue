@@ -31,18 +31,18 @@
 
         <div class="overflow-auto">
             <!-- pagination starts -->
-            <nav aria-label="...">
+            <nav  class='pagination-nav' aria-label="...">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
                         <a class="page-link " :href=" `/categories/` + this.id + '/' + this.pageNum" @click="previous">Previous</a>
                     </li>
-                    <li class="page-item active">
+                    <li class="page-item">
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '1'">1</a>
                     </li>
-                    <li class="page-item active">
+                    <li class="page-item">
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '2'">2</a>
                     </li>
-                    <li class="page-item active">
+                    <li class="page-item">
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '3'">3</a>
                     </li>
                     <li class="page-item">
@@ -52,7 +52,6 @@
             </nav>
             <!-- pagination ends -->
 
-            <!--  -->
             <p class="mt-3">Current Page: {{ currentPage }}</p>   
 
         </div>
@@ -80,9 +79,7 @@ export default {
             base_url: 'https://www.livescore.com/en/native/news/',
             id: '',
             page: '',
-            totalItems: 8,
-            // tutorials: [...],
-            totalPages: 3,
+            totalPages: 500,
             currentPage: 1,
             per_page: '',
             pageNum: ''
@@ -110,7 +107,7 @@ export default {
             'https://livescore6.p.rapidapi.com/news/v2/list-by-sport/',
             {
                 headers: {
-                    'X-RapidAPI-Key': '688eb0beeemsh8c7daafd5c3556ep15a70cjsn064a2a646b55',
+                    'X-RapidAPI-Key': '4019c68f6fmsh2280c1edd5d1458p1a4489jsnbb84be4d501a',
                     'X-RapidAPI-Host': 'livescore6.p.rapidapi.com'
                 },
                 params: { category: id1, page: page1 }
@@ -118,11 +115,6 @@ export default {
         );
         this.id = id1
         this.page = page1
-        // params: { category: '2021020913321150030', page: '1' }
-        // params : { params1 }
-        console.log(result.data)
-        // console.log(result.data)
-        // this.title = result.data.data.category.title
         this.title = result.data.data[0].category.title
         this.data = result.data.data
         this.currentPage = result.data.meta.pagination.current_page
@@ -155,11 +147,17 @@ h2 {
     margin: 12px;
 }
 
+a.page-link:active{
+    background-color: #1877f2;
+}
 .pagination {
     padding-top: 1rem;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+}
+.pagination-nav{
+    background-color: white;
 }
 
 .brand {

@@ -24,7 +24,7 @@
                     <h4>Top Stories</h4>
                 </div>
                 <div class="row content-section">
-                    <div v-for="item in topStories" :key="item.id" class="col-xs-6 col-md-4 col-lg-3 col-xl-2 content">
+                    <div v-for="item in topStories" :key="item.id" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 content">
                         <div class="content-inside">
                             <img :src="item.mainMedia.thumbnail.url" :alt="item.mainMedia.thumbnail.alt">
                             <!-- <a :href="`https://www.livescore.com/`+item.url"> -->
@@ -40,7 +40,7 @@
                     <h4>Featured News</h4>
                 </div>
                 <div class="row content-section">
-                    <div v-for="article in featuredArticles" :key="article.id" class="col-xs-6 col-md-4 col-lg-3 col-xl-2 content">
+                    <div v-for="article in featuredArticles" :key="article.id" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 content">
                         <div class="content-inside">
                             <img :src="article.mainMedia.thumbnail.url" :alt="article.mainMedia.thumbnail.alt">
                             <!-- <a :href="`https://www.livescore.com/`+article.url"> -->
@@ -56,7 +56,7 @@
                     <h4>Categories</h4>
                 </div>
                 <div class="row content-section">
-                    <div v-for="category in categories" :key="category.id" class="col-xs-6 col-md-4 col-lg-3 col-xl-2 content">
+                    <div v-for="category in categories" :key="category.id" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 content">
                         <div class="content-inside">
                             <router-link :to=" `/categories/` + category.id + '/' + '1'">
                                 <img src="../assets/fallback.jpg" alt="">
@@ -90,7 +90,7 @@ export default {
             loading: false
         }
     },
-    
+
     async mounted() {
         this.loading = true
 
@@ -98,7 +98,7 @@ export default {
             'https://livescore6.p.rapidapi.com/news/v2/list',
             {
                 headers: {
-                    'X-RapidAPI-Key': '688eb0beeemsh8c7daafd5c3556ep15a70cjsn064a2a646b55',
+                    'X-RapidAPI-Key': '4019c68f6fmsh2280c1edd5d1458p1a4489jsnbb84be4d501a',
                     'X-RapidAPI-Host': 'livescore6.p.rapidapi.com'
                 }
             }
@@ -112,16 +112,16 @@ export default {
 </script>
     
 <style>
-
 img {
     text-align: center;
-    height: 60%;
-    width: 90%;
+    height: 120px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
     border: 2px solid black
 }
+
 .page-heading {
     background-color: #e4e4d5;
     padding: 27px;
@@ -135,10 +135,10 @@ img {
     font-weight: 400;
     padding: 8px 0 8px 20px;
 }
-
+/* 
 .content-section {
     padding: 12px;
-}
+} */
 
 .story-title {
     font-size: 0.75rem;
@@ -146,9 +146,10 @@ img {
     width: 89%;
     margin-right: auto;
     margin-left: auto;
-    padding-top: 5px;
+    padding-top: 10px;
 }
-.categories-title{
+
+.categories-title {
     font-size: 1rem;
     color: black;
     width: 89%;
@@ -157,25 +158,31 @@ img {
     margin-left: auto;
     padding-top: 10px;
 }
+
 .content {
     height: 12.5rem;
     width: 100%;
     border-radius: 3px;
     padding: 0;
 }
-.content a{
+.row.content-section {
+    padding-top: 20px;
+    margin: 0;
+}
+.content a {
     color: black;
 }
 
-.content-inside{
+.content-inside {
     width: 100%;
     height: 100%;
     font-size: 0.8rem;
-    margin : 6px auto;
+    margin: 6px auto;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
 }
+
 .lds-roller {
     display: inline-block;
     position: relative;

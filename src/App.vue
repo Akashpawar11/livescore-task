@@ -36,4 +36,19 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+::-webkit-scrollbar{
+    width:20px;
+    height: 20px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(
+        to bottom,
+        #FF850A,
+        #FF3474
+    );
+    border-radius: 50px;
+}
+::-webkit-scrollbar-track{
+    background: #474747;
+}
 </style>

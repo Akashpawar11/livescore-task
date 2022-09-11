@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderNav />
-    <H1>About Us</H1>
+    <h1>About Us</h1>
   </div>
 </template>
 

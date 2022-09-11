@@ -8,7 +8,7 @@
 <script>
 import HeaderNav from './Header.vue'
 export default {
-    name: 'ContactUs',
+    name: 'ContactPage',
     components: {
         HeaderNav
     }
