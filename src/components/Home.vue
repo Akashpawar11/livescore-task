@@ -13,12 +13,18 @@
         </div>
         <div class="container-fluid" v-if="!loading">
 
-            <div class="row page-heading">The world’s leading live score service for football, cricket, tennis, basketball and hockey</div>
+            <div class="row page-heading">
+                <h2 class="m-auto col-12">Latest Sports News &amp; Today's Headlines</h2>
+                <h5 class="col-12 m-auto ">We cover the most up to date Sports stories in unmissable detail.</h5>
+            </div>
 
             <div class="container-fluid top-stories p-0">
-                <div class="row section-title pl-2">Top Stories</div>
+
+                <div class="row section-title">
+                    <h4>Top Stories</h4>
+                </div>
                 <div class="row content-section">
-                    <div v-for="item in topStories" :key="item.id" class="col-sm-4 col-md-4 col-lg-3 col-xl-2 content">
+                    <div v-for="item in topStories" :key="item.id" class="col-xs-6 col-md-4 col-lg-3 col-xl-2 content">
                         <div class="content-inside">
                             <img :src="item.mainMedia.thumbnail.url" :alt="item.mainMedia.thumbnail.alt">
                             <!-- <a :href="`https://www.livescore.com/`+item.url"> -->
@@ -30,9 +36,11 @@
             </div>
 
             <div class="container-fluid featured-news p-0">
-                <div class="row section-title">Featured News</div>
+                <div class="row section-title">
+                    <h4>Featured News</h4>
+                </div>
                 <div class="row content-section">
-                    <div v-for="article in featuredArticles" :key="article.id" class="col-sm-4 col-md-4 col-lg-3 col-xl-2 content">
+                    <div v-for="article in featuredArticles" :key="article.id" class="col-xs-6 col-md-4 col-lg-3 col-xl-2 content">
                         <div class="content-inside">
                             <img :src="article.mainMedia.thumbnail.url" :alt="article.mainMedia.thumbnail.alt">
                             <!-- <a :href="`https://www.livescore.com/`+article.url"> -->
@@ -44,9 +52,11 @@
             </div>
 
             <div class="container-fluid categories p-0">
-                <div class="row section-title">Categories</div>
+                <div class="row section-title">
+                    <h4>Categories</h4>
+                </div>
                 <div class="row content-section">
-                    <div v-for="category in categories" :key="category.id" class="col-sm-4 col-md-4 col-lg-3 col-xl-2 content">
+                    <div v-for="category in categories" :key="category.id" class="col-xs-6 col-md-4 col-lg-3 col-xl-2 content">
                         <div class="content-inside">
                             <router-link :to=" `/categories/` + category.id + '/' + '1'">
                                 <img src="../assets/fallback.jpg" alt="">
@@ -113,15 +123,15 @@ img {
     border: 2px solid black
 }
 .page-heading {
-    padding: 12px;
+    background-color: #e4e4d5;
+    padding: 27px;
     text-align: center;
 }
 
 .section-title {
-    background-color: #222;
+    background-color: #108282;
     color: aliceblue;
     font-family: calibri;
-    font-size: 1.5rem;
     font-weight: 400;
     padding: 8px 0 8px 20px;
 }

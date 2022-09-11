@@ -2,8 +2,8 @@
     <div>
         <header-nav />
         <h2>Category : {{this.title}}</h2>
-        <hr>
 
+        <!-- loader starts -->
         <div class="lds-roller" v-if="loading">
             <div></div>
             <div></div>
@@ -14,11 +14,11 @@
             <div></div>
             <div></div>
         </div>
+        <!-- loader ends -->
 
         <div v-if="!loading" class="container-fluid categories p-0">
             <div class="row content-section m-0">
                 <div v-for="item in data" :key="item.id" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 content">
-                    <!-- <div v-for="item in data" id="my-table" :per-page="per_page" :current-page="current_page" :key="item.id" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 content"> -->
                     <div class="content-inside" id="my-table">
                         <a :href=" 'https://www.livescore.com/en/native/news/' + '-' +  item.seo.slug  + '-' + item.id " target="_blank">
                             <img :src="item.image.data.urls.uploaded.thumbnail" alt="">
@@ -30,18 +30,19 @@
         </div>
 
         <div class="overflow-auto">
-            <nav class="pagination" aria-label="...">
-                <ul class="pagination">
+            <!-- pagination starts -->
+            <nav aria-label="...">
+                <ul class="pagination justify-content-center">
                     <li class="page-item">
-                        <a class="page-link" :href=" `/categories/` + this.id + '/' + this.pageNum" @click="previous">Previous</a>
+                        <a class="page-link " :href=" `/categories/` + this.id + '/' + this.pageNum" @click="previous">Previous</a>
                     </li>
-                    <li class="page-item">
+                    <li class="page-item active">
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '1'">1</a>
                     </li>
-                    <li class="page-item">
+                    <li class="page-item active">
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '2'">2</a>
                     </li>
-                    <li class="page-item">
+                    <li class="page-item active">
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '3'">3</a>
                     </li>
                     <li class="page-item">
@@ -49,8 +50,10 @@
                     </li>
                 </ul>
             </nav>
+            <!-- pagination ends -->
 
-            <p class="mt-3">Current Page: {{ currentPage }}</p>
+            <!--  -->
+            <p class="mt-3">Current Page: {{ currentPage }}</p>   
 
         </div>
 
@@ -127,16 +130,7 @@ export default {
         this.count = result.data.meta.pagination.count
         this.total_pages = result.data.meta.pagination.total_pages
         this.total = result.data.meta.pagination.total
-        this.loading = false
-        // this.data = result.data.data
-        // this.title = result.data[0].title
-        // this.title = result.data.category.title
-        // console.log(this.title)
-        // this.topStories = result.data.topStories
-        // this.featuredArticles = result.data.featuredArticles
-        // this.categories = result.data.categories
-        // console.log(this.topStories)
-
+        this.loading = false   //Makes loader disable after page is loaded 
     },
     computed: {
         rows() {

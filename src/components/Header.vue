@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container-fluid p-0">
+        <!-- <div class="container-fluid p-0">
             <nav>
                 <div class="brand">
                     LIVE SCORE
@@ -11,9 +11,25 @@
                     <router-link to="/contact">Contact</router-link>
                 </ul>
             </nav>
-        </div>
+        </div> -->
+        
+  <b-navbar toggleable="lg" type="dark">
+    <b-navbar-brand href="/">LIVE SCORE</b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item href="/about-us">About</b-nav-item>
+        <b-nav-item href="/contact">Contact</b-nav-item>
+      </b-navbar-nav>
+
+     </b-collapse>
+  </b-navbar>
+
         
     </div>
+
 </template>
 
 <script>
@@ -23,6 +39,10 @@ export default {
 </script>
 
 <style>
+*{
+    padding: 0;
+    margin: 0;
+}
 .brand {
     float: left;
     height: 50px;
@@ -41,18 +61,8 @@ nav {
     height: 80px;
     display: flex;
     padding: 0;
-    background-color: rgb(255, 255, 255);
+    background-color: #7c1414;
     border-bottom: 2px solid black;
-}
-
-nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-    color: #002741;
-    /* background-color: black; */
 }
 
 nav ul {
@@ -75,7 +85,7 @@ nav ul a {
 
 nav ul a:hover {
     text-decoration: none;
-    background-color: #222;
+    background-color: rgb(241, 227, 227);
     color: aliceblue;
     border-radius: 4px;
     /* display: flex;
