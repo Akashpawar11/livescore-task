@@ -1,23 +1,21 @@
 <template>
     <div>
+        <b-navbar class="navbar" toggleable="lg" type="dark">
+            <b-navbar-brand class="brand" href="/">LIVE SCORE
+                <div class="red-dot"></div>
+            </b-navbar-brand>
 
+            <b-navbar-toggle target="nav-collapse" class="bbb"></b-navbar-toggle>
 
-        <b-navbar toggleable="lg" type="dark">
-            <b-navbar-brand href="/">LIVE SCORE</b-navbar-brand>
-
-            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-            <b-collapse class="collapseNav" id="nav-collapse" is-nav>
+            <b-collapse class="collapseNav collapse show" id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item href='/'>Home</b-nav-item>
-                    <b-nav-item href='/about-us'>About Us</b-nav-item>
-                    <b-nav-item href='/contact'>Contact</b-nav-item>
+                    <router-link class="routerLink" to='/'>Home</router-link>
+                    <router-link class="routerLink" to='/about-us'>About Us</router-link>
+                    <router-link class="routerLink" to='/contact'>Contact</router-link>
                 </b-navbar-nav>
-
             </b-collapse>
+
         </b-navbar>
-
-
     </div>
 
 </template>
@@ -32,32 +30,54 @@ export default {
 * {
     padding: 0;
     margin: 0;
+    transition: 0.4s;
 }
 
 .brand {
-    float: left;
-    height: 50px;
-    font-size: 1em;
-    font-weight: 900;
-    padding: 12px 10px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    padding: 5px 10px;
     border-radius: 3px;
-    border: 2px solid black;
-    margin: auto 5px;
+    border: 2px solid white;
+    font-family: 'Montserrat';
+    font-weight: 700;
 }
 
-nav {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    padding: 0;
-    background-color: #7c1414;
-    border-bottom: 2px solid black;
+.red-dot {
+    height: 10px;
+    width: 10px;
+    margin: 0px 1px 3px 3px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: rgb(253 0 0);
+}
+
+a.routerLink {
+    color: white;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .collapseNav {
-    background-color: #7c1414;
+    border-left: 3px solid white;
+    padding-left: 1rem;
+}
+
+.bbb {
+
+    margin: 10px 0;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    /* background-color: #7c1414; */
+    background-color: #000000;
+    border-bottom: 6px solid rgb(255, 183, 0);
+}
+
+.collapseNav {
+    /* background-color: #7c1414; */
+    background-color: #000000;
 
 
 }
@@ -68,6 +88,7 @@ nav ul {
     align-items: center;
     margin: 0 0 0 0;
     padding: 0 10px;
+    list-style: circle;
 }
 
 nav ul a {
@@ -75,6 +96,7 @@ nav ul a {
     justify-content: center;
     align-items: center; */
     /* margin: 0 0 0 0; */
+
     padding: 12px;
     margin-left: 5px;
     margin-right: 5px;
@@ -82,8 +104,8 @@ nav ul a {
 
 nav ul a:hover {
     text-decoration: none;
-    background-color: rgb(57, 9, 9);
-    color: rgb(12, 12, 9);
+    background-color: rgb(239, 239, 239);
+    color: rgb(0, 0, 0);
     border-radius: 4px;
     /* display: flex;
     justify-content: center;

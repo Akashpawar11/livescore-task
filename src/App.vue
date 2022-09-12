@@ -5,7 +5,7 @@
       <!-- <HomePage /> -->
       <!-- <PaginationSample /> -->
       <router-view />
-  
+
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
 export default {
   components: {
     // PaginationSample
-}
+  }
 }
 </script>
 
@@ -29,6 +29,11 @@ export default {
   box-sizing: border-box;
 }
 
+body {
+
+  background-color: #e4e4d5;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,19 +41,20 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-::-webkit-scrollbar{
-    width:20px;
-    height: 20px;
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
 }
-::-webkit-scrollbar-thumb{
-    background: linear-gradient(
-        to bottom,
-        #FF850A,
-        #FF3474
-    );
-    border-radius: 50px;
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom,
+      #FF850A,
+      #FF3474);
+  border-radius: 50px;
 }
-::-webkit-scrollbar-track{
-    background: #474747;
+
+::-webkit-scrollbar-track {
+  background: #474747;
 }
 </style>
