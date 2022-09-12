@@ -6,15 +6,18 @@
         </div>
 
         <!-- Loader -->
-        <div class="lds-roller" v-if="loading">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div>
+
+            <div class="lds-roller" v-if="loading">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
         <!-- Error Message -->
         <h2 v-if="error">Error 404 ,PAGE NOT FOUND<br>{{this.errorMsg}}</h2>
@@ -141,7 +144,8 @@ img {
     border: 2px solid black;
 
 }
-img:hover{
+
+img:hover {
     transform: scale(1.10);
 }
 
@@ -155,7 +159,7 @@ h2 {
     background-color: #e4e4d5;
     padding: 27px 0;
     text-align: center;
-    border-bottom:#008695
+    border-bottom: #008695
 }
 
 /* Sections - Title bar */
@@ -188,8 +192,6 @@ h2 {
     color: black;
     width: 89%;
     font-weight: bolder;
-    /* margin-right: auto;
-    margin-left: auto; */
     padding-top: 10px;
     transition: 0.1s;
 }
@@ -225,17 +227,21 @@ h2 {
     justify-content: center;
     border-radius: 5px;
 }
-.content-inside a:hover{
+
+.content-inside a:hover {
     text-decoration: none;
 }
+
 /* Loader starts */
 .lds-roller {
     display: inline-block;
     position: relative;
-    width: 7%;
-    height: 20vh;
+    width: 90px;
+    height: 90px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
     text-align: center;
     margin-top: 12%;
 }

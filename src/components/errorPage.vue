@@ -1,9 +1,6 @@
 <template>
     <div>
-        <center>
-            <h1>404 not found</h1>
-            <h2>it seems you're in the wrong page</h2>
-        </center>
+        <img class="gif" src="../assets/404-Page.gif" alt="">
     </div>
 </template>
 
@@ -13,6 +10,17 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    body{
+        background-color:white ;
+    }
+    .gif{
+        height: auto;
+        width: auto;
+        border: none;
+        border-radius: none;
+    }
+    .gif:hover{
+        transform: scale(1.0);
+    }
 </style>
