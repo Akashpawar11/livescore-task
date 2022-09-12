@@ -34,6 +34,9 @@
             <nav  class='pagination-nav' aria-label="...">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
+                        <a class="page-link " :href=" `/categories/` + this.id + '/' + '1'">First</a>
+                    </li>
+                    <li class="page-item">
                         <a class="page-link " :href=" `/categories/` + this.id + '/' + this.pageNum" @click="previous">Previous</a>
                     </li>
                     <li class="page-item">
@@ -46,7 +49,31 @@
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '3'">3</a>
                     </li>
                     <li class="page-item">
+                        <a class="page-link" :href=" `/categories/` + this.id + '/' + '4'">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" :href=" `/categories/` + this.id + '/' + '5'">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" :href=" `/categories/` + this.id + '/' + '6'">6</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" :href=" `/categories/` + this.id + '/' + '7'">7</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" :href=" `/categories/` + this.id + '/' + '8'">8</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" :href=" `/categories/` + this.id + '/' + '9'">9</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" :href=" `/categories/` + this.id + '/' + '10'">10</a>
+                    </li>
+                    <li class="page-item">
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + this.pageNum" @click="next">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" :href=" `/categories/` + this.id + '/' + this.totalPages">Last</a>
                     </li>
                 </ul>
             </nav>
@@ -120,7 +147,8 @@ export default {
         this.currentPage = result.data.meta.pagination.current_page
         this.per_page = result.data.meta.pagination.per_page
         this.count = result.data.meta.pagination.count
-        this.total_pages = result.data.meta.pagination.total_pages
+        this.totalPages = result.data.meta.pagination.total_pages
+
         this.total = result.data.meta.pagination.total
         this.loading = false   //Makes loader disable after page is loaded 
     },

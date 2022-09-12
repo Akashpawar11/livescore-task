@@ -4,6 +4,7 @@ import HomePage from '../components/Home.vue'
 import CategoriesPage from '../components/Categories.vue'
 import ContactPage from '../components/Contact.vue'
 import AboutUs from '../components/AboutUs.vue'
+import errorPage from '../components/errorPage.vue'
 
 
 Vue.use(VueRouter)
@@ -28,6 +29,10 @@ const routes = [
     path: '/contact',
     name: 'ContactPage',
     component: ContactPage
+  },
+  {
+    path: '*',
+    component: errorPage
   }
 ]
 
