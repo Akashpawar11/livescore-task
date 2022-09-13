@@ -30,15 +30,15 @@
             </div>
         </div>
 
-        <div v-if="!error" class="overflow-auto">
+        <!-- <div  class="container-fluid"> -->
             <!-- pagination starts -->
-            <nav  class='pagination-nav' aria-label="...">
+            <nav v-if="!error" class='pagination-nav' aria-label="...">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
                         <a class="page-link bg-success" :href=" `/categories/` + this.id + '/' + '1'">First</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link bg-warning" :href=" `/categories/` + this.id + '/' + this.pageNum" @click="previous">Previous</a>
+                        <a class="page-link bg-warning" :href=" `/categories/` + this.id + '/' + this.pageNum" @click="previous">&#8249;</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '1'">1</a>
@@ -71,7 +71,7 @@
                         <a class="page-link" :href=" `/categories/` + this.id + '/' + '10'">10</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link bg-warning" :href=" `/categories/` + this.id + '/' + this.pageNum" @click="next">Next</a>
+                        <a class="page-link bg-warning" :href=" `/categories/` + this.id + '/' + this.pageNum" @click="next">&#8250;</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link bg-success" :href=" `/categories/` + this.id + '/' + this.totalPages">Last</a>
@@ -82,7 +82,6 @@
 
             <h2 class="mt-3">Current Page : {{ currentPage }}</h2>   
 
-        </div>
 
         <!-- Pagination Ends -->
 
@@ -212,7 +211,7 @@ a.page-link:focus{
     font-weight: 700;
     background-color: #fff;
     border: 0px solid #2e2b29;
-    padding: 10px 19px;
+    padding: 10px 10px;
 }
     .pagination {
     padding-top: 1rem;
