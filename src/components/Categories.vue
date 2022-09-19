@@ -1,7 +1,7 @@
 <template>
     <div>
         <header-nav />
-        <h2 id="categoriesTitle">Category : {{this.title}}</h2>
+        <h2 v-if="!error" id="categoriesTitle">Category : {{this.title}}</h2>
 
         <!-- loader starts -->
         <div class="lds-roller" v-if="loading">
@@ -14,7 +14,7 @@
             <div></div>
             <div></div>
         </div>
-        <h2 v-if="error">Error 404 ,PAGE NOT FOUND<br>{{this.errorMsg}}</h2>
+        <h2 style="margin-top:3rem" v-if="error">Error 404 ,PAGE NOT FOUND<br>{{this.errorMsg}}</h2>
         <!-- loader ends -->
 
         <div v-if="!loading" class="container-fluid categories p-0">
@@ -80,7 +80,7 @@
             </nav>
             <!-- pagination ends -->
 
-            <h2 class="mt-3">Current Page : {{ currentPage }}</h2>   
+            <h2 v-if="!error" class="mt-3">Current Page : {{ currentPage }}</h2>   
 
 
         <!-- Pagination Ends -->
@@ -160,6 +160,7 @@ export default {
             console.log(error)
             this.error = true
             this.errorMsg = ("Invalid Page Number")
+            this.loading = false
         }
     },
     computed: {
